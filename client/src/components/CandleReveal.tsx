@@ -37,17 +37,17 @@ export function CandleReveal() {
   const sceneStyle = { "--reveal-progress": progress, "--flame-opacity": lit ? 1 : 0 } as CSSProperties;
   return <section ref={sectionRef} className="candle-reveal" style={sceneStyle} aria-label="لمحة عن فئة الشموع الطبيعية القادمة">
     <div className="candle-reveal__copy">
-      <span className="section-kicker">امتداد طبيعي قريبًا</span>
+      <span className="section-kicker">فصل قادم من القصة</span>
       <h2>ضوء هادئ<br /><em>للهدية نفسها.</em></h2>
-      <p>نجهّز مساحة مستقبلية لشموع طبيعية ضمن عالم Zman. الصورة والمشهد هنا مرجعان بصريان فقط إلى أن تعتمد الحاويات والمكونات والروائح الفعلية.</p>
-      <button type="button" className="candle-toggle" aria-pressed={lit} onClick={() => setLit((value) => !value)}><Flame size={17} /> {lit ? "أطفئي الوهج البصري" : "أشعلي المشهد"}</button>
-      <span className="candle-reveal__note"><Sparkles size={14} /> حركة حسية مرجعية، وليست إرشاد استخدام.</span>
+      <p>حين تتوسع Zman إلى الشموع الطبيعية، نريد أن تبقى الحركة جزءًا من الإحساس: يد ترفع الغطاء، ووهج صغير يكمل مشهد الهدية. هذا تصوير مرجعي مؤقت إلى أن تعتمد الحاويات والمكونات الفعلية.</p>
+      <button type="button" className="candle-toggle" aria-pressed={lit} onClick={() => setLit((value) => !value)}><Flame size={17} /> {lit ? "شاهدي الوهج" : "أظهري الوهج"}</button>
+      <span className="candle-reveal__note"><Sparkles size={14} /> مشهد قصة، وليس منتجًا متاحًا للطلب بعد.</span>
     </div>
     <div className="candle-reveal__stage" aria-hidden="true">
       <div className="candle-reveal__halo" />
       <div className="candle-reveal__lid" />
       <div className="candle-reveal__flame"><i /><i /><i /></div>
-      <img src={visuals.candleConcrete} alt="" className="candle-reveal__image" />
+      <img src={visuals.handCandle} alt="" className="candle-reveal__image" />
       <span className="asset-status">مرجع مؤقت</span>
     </div>
   </section>;

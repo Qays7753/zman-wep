@@ -11,6 +11,7 @@ import { lazy, Suspense } from "react";
 
 const Home = lazy(() => import("./pages/Home"));
 const BrandStory = lazy(() => import("./pages/BrandStory"));
+const Catalogue = lazy(() => import("./pages/Catalogue"));
 const OccasionDetail = lazy(() => import("./pages/OccasionDetail"));
 const Customize = lazy(() => import("./pages/Customize"));
 const Care = lazy(() => import("./pages/Care"));
@@ -21,6 +22,7 @@ function Router() {
   return <Switch>
     <Route path="/" component={Home} />
     <Route path="/brand" component={BrandStory} />
+    <Route path="/catalogue" component={Catalogue} />
     <Route path="/occasions/:id" component={OccasionDetail} />
     <Route path="/customize" component={Customize} />
     <Route path="/care" component={Care} />

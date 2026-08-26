@@ -1,15 +1,15 @@
 /** Herbarium Dispatch: a scroll-controlled planter transformation, inspired by a motion principle—not copied artwork. */
 import { AssetStatus } from "@/components/AssetStatus";
 import { visuals } from "@/data/siteContent";
-import { ArrowDown, MoveLeft, Play } from "lucide-react";
+import { ArrowDown, MessageCircle, Play } from "lucide-react";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { Link } from "wouter";
 
 const chapters = [
-  ["01", "البذرة", "بطاقة هدية تحمل بداية الفكرة."],
-  ["02", "التكوّن", "طبقات الورق تتحول إلى حواف خشبية."],
-  ["03", "النمو", "تنسيق مزروع يجمع أكثر من تفصيلة حيّة."],
-  ["04", "الهدية", "قطعة واحدة، تبدأ منها تفاصيل المناسبة."],
+  ["01", "الفكرة", "تبدأ من مناسبة أو زاوية صغيرة في مكان تحبينه."],
+  ["02", "الترتيب", "الخشب والتربة والنبتة تجد مكانها بهدوء."],
+  ["03", "النمو", "عدة عناصر حية تصبح تنسيقًا واحدًا."],
+  ["04", "الأثر", "قطعة تبقى لتذكّر بلحظة خاصة."],
 ] as const;
 
 export function PlanterSequence() {
@@ -51,8 +51,8 @@ export function PlanterSequence() {
   return <section id="planted-story" ref={ref} className="planter-sequence" style={style} aria-label="قصة تنسيق مزروع متحول مع التمرير">
     <div className="planter-sequence__sticky">
       <div className="planter-sequence__copy"><span className="section-kicker">تنسيقات مزروعة · قصة متحركة</span><div className="planter-sequence__chapter"><span>{chapters[chapter][0]}</span><h2>{chapters[chapter][1]}</h2><p>{chapters[chapter][2]}</p></div><div className="planter-sequence__progress" aria-hidden="true">{chapters.map(([id]) => <i className={Number(id) <= chapter + 1 ? "is-active" : ""} key={id} />)}</div>{!reduced && <button type="button" className="planter-sequence__play" onClick={playSequence} disabled={playing}><Play size={14} fill="currentColor" /> {playing ? "يتشكل الآن…" : "شاهدي التحوّل"}</button>}<span className="planter-sequence__hint"><ArrowDown size={15} /> مرّري لتشاهدي التكوّن</span></div>
-      <div className="planter-sequence__stage" aria-label="مشهد مرجعي مؤقت لتنسيق مزروع"><div className="planter-sequence__paper"><span>زمن · بطاقة هدية</span></div><div className="planter-sequence__seedling" aria-hidden="true"><i /><i /><i /></div><span className="planter-sequence__material-label">ورق · خشب · نبات</span><div className="planter-sequence__wood planter-sequence__wood--back" /><div className="planter-sequence__foliage planter-sequence__foliage--one" /><div className="planter-sequence__foliage planter-sequence__foliage--two" /><img src={visuals.plantedArrangement} alt="تنسيق مزروع مرجعي مؤقت داخل حاوية خشبية" className="planter-sequence__image" /><div className="planter-sequence__wood planter-sequence__wood--front" /><AssetStatus status="temporary-reference" /></div>
-      <div className="planter-sequence__action"><p>تنسيق حي متعدد العناصر، وتفاصيله تُراجع معك قبل أي تأكيد.</p><Link href="/customize?gift=planter" className="primary-link">ابدئي تنسيقًا مزروعًا <MoveLeft size={17} /></Link></div>
+      <div className="planter-sequence__stage" aria-label="مشهد مرجعي مؤقت ليد ترتب تنسيقًا مزروعًا"><div className="planter-sequence__paper"><span>زمن · لحظة تنمو</span></div><div className="planter-sequence__seedling" aria-hidden="true"><i /><i /><i /></div><span className="planter-sequence__material-label">يد · خشب · نبات</span><div className="planter-sequence__wood planter-sequence__wood--back" /><div className="planter-sequence__foliage planter-sequence__foliage--one" /><div className="planter-sequence__foliage planter-sequence__foliage--two" /><img src={visuals.handPlanter} alt="مشهد مرجعي مؤقت ليد تضع شتلات في صندوق خشبي" className="planter-sequence__image" /><div className="planter-sequence__wood planter-sequence__wood--front" /><AssetStatus status="temporary-reference" /></div>
+      <div className="planter-sequence__action"><p>تفصيلة حية تبدأ من فكرتك، ونراجعها معك قبل أي تأكيد.</p><a href="https://wa.me/962781950968" target="_blank" rel="noreferrer" className="primary-link"><MessageCircle size={17} /> احكِ لنا عن فكرتك</a></div>
     </div>
   </section>;
 }

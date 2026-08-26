@@ -8,6 +8,7 @@ export const brand = {
   name: "Zman Greens JO",
   arabicName: "زمن للنباتات الخضراء",
   instagram: "@zmanstore",
+  instagramUrl: "https://www.instagram.com/zmanstore/",
   phoneDisplay: "0781950968",
   whatsappUrl: "https://wa.me/962781950968",
   logoUrl: "/manus-storage/zman-logo-with-name_49b6b544.svg",
@@ -37,6 +38,8 @@ export const visuals = {
   candleConcrete: "/manus-storage/zman-candle-concrete-box-reference_d37ecb41.jpg",
   plantedArrangement: "/manus-storage/zman-planted-arrangement-wooden-reference_e7ea8b1d.jpg",
   plantedArrangementDetail: "/manus-storage/zman-planted-arrangement-detail-reference_0f4fcb06.jpg",
+  handPlanter: "/manus-storage/zman-hand-plants-wooden-planter_4843807e.jpg",
+  handCandle: "/manus-storage/zman-hand-candle-reveal_12bf5e5b.jpg",
 };
 
 export type GiftFamily = {

@@ -2,5 +2,5 @@
 import type { AssetStatus } from "@/data/siteContent";
 
 export function AssetStatus({ status }: { status: AssetStatus }) {
-  return status === "temporary-reference" ? <span className="asset-status">مرجع مؤقت</span> : null;
+  return status === "temporary-reference" ? <span className="asset-status">من ملفنا النباتي</span> : null;
 }

@@ -1,0 +1,8 @@
+/** Zman catalogue concept: an isolated future-facing page, deliberately not the homepage or a live store. */
+import { AssetStatus } from "@/components/AssetStatus";
+import { brand, giftFamilies } from "@/data/siteContent";
+import { ArrowUpLeft, MessageCircle } from "lucide-react";
+
+export default function Catalogue() {
+  return <main className="catalogue-page"><section className="catalogue-hero section-shell"><div><span className="section-kicker">ZMAN CATALOGUE · CONCEPT</span><h1>عالم الهدايا<br /><em>قيد الترتيب.</em></h1><p>هذه مساحة مستقلة للكتالوج المستقبلي. لا تعرض أسعارًا أو مخزونًا أو تفاصيل بيع قبل اعتماد بيانات المنتجات والصور الحقيقية.</p></div><a href={brand.whatsappUrl} target="_blank" rel="noreferrer" className="primary-link"><MessageCircle size={18} /> اسألي عن المتاح حاليًا <ArrowUpLeft size={17} /></a></section><section className="catalogue-families section-shell"><div className="section-topline"><div><span className="section-kicker">فئات قابلة للتوسع</span><h2>تصوّر الكتالوج<br />قبل إطلاقه.</h2></div><span className="collection-index">CATALOGUE / 01</span></div><div className="catalogue-families__grid">{giftFamilies.map((item) => <article key={item.id}><div className="catalogue-families__image"><img src={item.image} alt={`صورة مرجعية مؤقتة لفئة ${item.title}`} /><AssetStatus status={item.status} /></div><span>{item.availability === "future" ? "قريبًا" : "فئة حالية"}</span><h3>{item.title}</h3><p>{item.description}</p></article>)}</div></section><section className="catalogue-note section-shell"><p>عند اعتماد الكتالوج، ستضاف المنتجات الفعلية وصورها وأسعارها وتوفرها وشروطها هنا فقط، من دون تغيير تجربة الصفحة الرئيسية.</p></section></main>;
+}

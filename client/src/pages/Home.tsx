@@ -1,44 +1,31 @@
-/** Herbarium Dispatch home: product-led editorial storytelling with replaceable reference media. */
+/** Zman company homepage: concise services and occasions; Brand Story and catalogue are separate journeys. */
 import { AssetStatus } from "@/components/AssetStatus";
-import { BrandCaseStudy } from "@/components/BrandCaseStudy";
-import { CandleReveal } from "@/components/CandleReveal";
-import { PlanterSequence } from "@/components/PlanterSequence";
-import { brand, giftFamilies, occasions, orderSteps, temporaryAssetNotice, visuals } from "@/data/siteContent";
-import { ArrowUpLeft, ChevronLeft, Leaf, MessageCircle, MoveLeft, Sparkles } from "lucide-react";
+import { brand, orderSteps, visuals } from "@/data/siteContent";
+import { ArrowUpLeft, ChevronLeft, Instagram, MessageCircle, MoveLeft, Sparkles } from "lucide-react";
 import { Link } from "wouter";
 
+const offerings = [
+  { number: "01", title: "توزيعات مناسبات", text: "عصاريات صغيرة وتفاصيل تغليف تُرتب حول لحظتك، لا حول قالب جاهز.", image: visuals.hero },
+  { number: "02", title: "تنسيقات مزروعة", text: "أصيص أو صندوق مزروع متعدد العناصر لفكرة تريد أن تبقى حية في المكان.", image: visuals.plantedArrangementDetail },
+  { number: "03", title: "هدايا وتفاصيل", text: "بطاقات، أسماء، ألوان، وتغليف يساعد الهدية أن تحمل أثر المناسبة.", image: visuals.giftBox },
+];
+
+const moments = ["تخرج", "استقبال مولود", "حنّة ومناسبات خاصة", "هدية شخصية", "بيت ومكتب"];
+
 export default function Home() {
-  return <main className="home-page">
-    <section className="hero">
-      <img src={brand.rosetteUrl} alt="" aria-hidden="true" className="hero__rosette" />
-      <div className="hero__copy reveal-up">
-        <div className="hero__eyebrow"><span /> ZMAN GREENS JO · AMMAN</div>
-        <h1>هدية صغيرة.<br /><em>ذكرى</em> تكبر.</h1>
-        <p>توزيعات عصاريات وهدايا مناسبات تُصمَّم حول فكرتك، وتبقى مع من يحبّها بعد انتهاء اللحظة.</p>
-        <div className="hero__actions"><Link href="/customize" className="primary-link">ابدئي فكرتك <MoveLeft size={18} /></Link><a href="#occasions" className="text-link">استكشفي المناسبات <ChevronLeft size={16} /></a></div>
-        <div className="hero__meta"><span>توزيعات · ديكور بيت ومكتب</span><span>تصميم حسب المناسبة</span></div>
-      </div>
-      <div className="hero__visual reveal-up reveal-up--late"><div className="hero__image-shell"><img src={visuals.hero} alt="توزيعة عصاري بيضاء مرجعية مؤقتة" /><AssetStatus status="temporary-reference" /></div><div className="hero__caption"><Leaf size={15} /> <span>قطعة صغيرة، معنى أكبر</span></div></div>
-      <div className="hero__scroll"><span>مرّري لاكتشاف التفاصيل</span><i /></div>
-    </section>
+  return <main className="company-home">
+    <section className="company-hero"><div className="section-shell company-hero__grid"><div className="company-hero__copy"><span className="section-kicker">ZMAN GREENS JO · AMMAN</span><h1>هدايا صغيرة<br /><em>تترك أثرًا.</em></h1><p>زمن للنباتات الخضراء تصنع توزيعات وتنسيقات وهدايا مناسبات تبدأ من فكرتك وتصل بتفاصيل تشبهها.</p><div className="company-hero__actions"><a href={brand.whatsappUrl} target="_blank" rel="noreferrer" className="primary-link"><MessageCircle size={18} /> احكِ لنا عن مناسبتك <MoveLeft size={17} /></a><a href={brand.instagramUrl} target="_blank" rel="noreferrer" className="quiet-link"><Instagram size={17} /> شاهدي أعمالنا على Instagram</a></div><div className="company-hero__facts"><span>توزيعات مناسبات</span><span>تنسيقات مزروعة</span><span>هدايا مخصّصة</span></div></div><div className="company-hero__visual"><img src={visuals.hero} alt="توزيعة عصاري صغيرة مرجعية مؤقتة من Zman" /><AssetStatus status="temporary-reference" /><span className="company-hero__caption">تفصيلة صغيرة، معنى أكبر</span></div></div></section>
 
-    <BrandCaseStudy />
+    <section className="company-intro section-shell"><span className="company-intro__index">01</span><div><span className="section-kicker">ما الذي تقدمه زمن؟</span><h2>نباتات وهدايا<br /><em>تُبنى حول المناسبة.</em></h2></div><p>لا نعامل الهدية كمنتج ثابت؛ نبدأ بالمناسبة والفكرة، ثم ننسق النبات والتغليف والبطاقة لتصبح القطعة جزءًا من اللحظة.</p><Link href="/brand" className="company-intro__link">تعرّفي إلى قصتنا وهويتنا <ArrowUpLeft size={16} /></Link></section>
 
-    <section className="gift-families section-shell"><div className="section-topline"><div><span className="section-kicker">عالم الهدايا الطبيعية</span><h2>نباتات اليوم، وضوء دافئ قريبًا.</h2></div><span className="collection-index">02 / COLLECTION</span></div><div className="gift-families__grid">{giftFamilies.map((family) => <article key={family.id} className={`gift-family gift-family--${family.id}`}><div className="gift-family__image"><img src={family.image} alt={`صورة مرجعية مؤقتة لفئة ${family.title}`} /><AssetStatus status={family.status} /></div><div className="gift-family__copy"><span>{family.eyebrow}</span><h3>{family.title}</h3><p>{family.description}</p>{family.availability === "future" ? <b>قيد التحضير</b> : <Link href={`/customize?gift=${family.id}`} className="quiet-link">ابدئي الفكرة <MoveLeft size={16} /></Link>}</div></article>)}</div></section>
+    <section className="company-offerings section-shell"><div className="section-topline"><div><span className="section-kicker">ما نعمل عليه</span><h2>ثلاث طرق<br />لتصبح الفكرة هدية.</h2></div><Link href="/catalogue" className="section-link">استكشفي Concept الكتالوج <ArrowUpLeft size={16} /></Link></div><div className="company-offerings__grid">{offerings.map((item) => <article key={item.number}><div className="company-offerings__image"><img src={item.image} alt={`صورة مرجعية مؤقتة لـ${item.title}`} /><AssetStatus status="temporary-reference" /></div><div className="company-offerings__copy"><span>{item.number}</span><h3>{item.title}</h3><p>{item.text}</p></div></article>)}</div></section>
 
-    <section id="occasions" className="occasions section-shell">
-      <div className="section-topline"><div><span className="section-kicker">اختاري اللحظة</span><h2>كل مناسبة لها طريقتها.</h2></div><Link href="/how-to-order" className="section-link">طريقة الطلب <ArrowUpLeft size={16} /></Link></div>
-      <div className="occasion-grid">{occasions.map((occasion, index) => <Link href={`/occasions/${occasion.id}`} key={occasion.id} className={`occasion-card occasion-card--${index + 1}`}><div className="occasion-card__image"><img src={occasion.image} alt={`صورة مرجعية مؤقتة لتوزيعات ${occasion.title}`} /><AssetStatus status={occasion.status} /></div><div className="occasion-card__copy"><span>{occasion.eyebrow}</span><h3>{occasion.title}</h3><p>{occasion.description}</p><i><MoveLeft size={17} /></i></div></Link>)}</div>
-      <p className="asset-disclaimer">{temporaryAssetNotice}</p>
-    </section>
+    <section className="company-moments"><div className="section-shell company-moments__grid"><div><span className="section-kicker">لأي لحظة؟</span><h2>لكل مناسبة<br /><em>لغة خاصة.</em></h2><p>التفاصيل المناسبة تبدأ من سؤال بسيط: ما الذي تريدين من الضيوف أن يتذكروه؟</p></div><div className="company-moments__list">{moments.map((moment, index) => <span key={moment}><b>0{index + 1}</b>{moment}</span>)}</div></div></section>
 
-    <section className="customization-band"><div className="customization-band__texture" style={{ backgroundImage: `url(${visuals.texture})` }} /><div className="section-shell customization-band__content"><div className="customization-band__image"><img src={visuals.customization} alt="تفصيل مرجعي مؤقت للتخصيص" /><AssetStatus status="temporary-reference" /></div><div className="customization-band__copy"><span className="section-kicker">التخصيص يبدأ منكم</span><h2>فكرتك أولًا.<br /><em>ثم التفاصيل.</em></h2><p>اكتبي المناسبة والكمية والاسم أو العبارة وأي ملاحظة تحبينها. سنجهّز رسالة مرتبة لتبدئي التنسيق عبر واتساب.</p><Link href="/customize" className="primary-link">خصّصي طلبك <MoveLeft size={18} /></Link></div></div></section>
-    <PlanterSequence />
-    <CandleReveal />
+    <section className="company-process section-shell"><div><span className="section-kicker">كيف نبدأ؟</span><h2>نتواصل قبل أن<br />نرتب أي تفصيل.</h2></div><div className="company-process__steps">{orderSteps.map((step) => <article key={step.number}><span>{step.number}</span><h3>{step.title}</h3><p>{step.text}</p></article>)}</div></section>
 
-    <section className="process section-shell"><div className="process__intro"><span className="section-kicker">بلا تعقيد</span><h2>ثلاث خطوات، ثم نتواصل معك.</h2></div><div className="process__steps">{orderSteps.map((step) => <article key={step.number}><span>{step.number}</span><h3>{step.title}</h3><p>{step.text}</p></article>)}</div></section>
-    <section className="care-prompt section-shell"><div><Sparkles size={18} /><span className="section-kicker">العناية بعد المناسبة</span><h2>النبتة الصغيرة تحتاج وقتًا بسيطًا لتكبر بهدوء.</h2></div><Link href="/care" className="quiet-link">اقرئي دليل العناية <ChevronLeft size={17} /></Link></section>
-    <section className="final-cta section-shell"><img src={brand.rosetteUrl} alt="" aria-hidden="true" /><span className="section-kicker">ابدئي من مناسبة واحدة</span><h2>قولي لنا ما الذي تحتفلين به.</h2><p>نرتّب البداية معك، ثم نراجع كل تفصيل قبل التأكيد.</p><Link href="/customize" className="primary-link primary-link--gold"><MessageCircle size={19} /> ابدئي عبر واتساب <MoveLeft size={18} /></Link></section>
-    <a href={brand.whatsappUrl} target="_blank" rel="noreferrer" className="mobile-order-dock"><MessageCircle size={20} /> ابدئي طلبك عبر واتساب</a>
+    <section className="company-instagram"><div className="section-shell company-instagram__grid"><div className="company-instagram__images"><img src={visuals.graduation} alt="عمل مرجعي مؤقت لمناسبة تخرج" /><img src={visuals.customization} alt="تفصيل مرجعي مؤقت للتخصيص" /><img src={visuals.plantedArrangement} alt="تنسيق مزروع مرجعي مؤقت" /></div><div><Instagram size={24} /><span className="section-kicker">من أعمالنا الحالية</span><h2>شاهدي زمن<br /><em>كما تظهر في الواقع.</em></h2><p>صفحتنا على Instagram هي المكان الأنسب لرؤية الأعمال والتنسيقات المنشورة حديثًا.</p><a href={brand.instagramUrl} target="_blank" rel="noreferrer" className="primary-link">راجعي صفحتنا على Instagram <ArrowUpLeft size={17} /></a></div></div></section>
+
+    <section className="company-contact section-shell"><Sparkles size={20} /><div><span className="section-kicker">لديك فكرة؟</span><h2>أرسليها لنا،<br /><em>ونبدأ منها.</em></h2><p>للاستفسار أو بدء تنسيق مناسبتك، راسلينا مباشرة عبر WhatsApp.</p></div><a href={brand.whatsappUrl} target="_blank" rel="noreferrer" className="primary-link primary-link--gold"><MessageCircle size={19} /> تواصلي عبر WhatsApp <MoveLeft size={18} /></a></section>
   </main>;
 }

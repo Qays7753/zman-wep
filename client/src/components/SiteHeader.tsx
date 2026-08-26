@@ -6,8 +6,9 @@ import { brand } from "@/data/siteContent";
 
 const navItems = [
   { href: "/", label: "الرئيسية" },
-  { href: "/brand", label: "ملف الهوية" },
-  { href: "/how-to-order", label: "طريقة الطلب" },
+  { href: "/brand", label: "قصتنا" },
+  { href: "/catalogue", label: "الكتالوج" },
+  { href: "/how-to-order", label: "طريقة العمل" },
   { href: "/care", label: "العناية" },
 ];
 
@@ -18,7 +19,8 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="site-header__inner">
         <Link href="/" className="brand-lockup" aria-label="العودة إلى الرئيسية">
-          <img src={brand.logoUrl} alt="Zman Greens JO" className="brand-lockup__logo" />
+          <img src={brand.rosetteUrl} alt="" aria-hidden="true" className="brand-lockup__seal" />
+          <span className="brand-lockup__words"><b>Zman Greens</b><small>JO · AMMAN</small></span>
         </Link>
         <nav className="site-nav" aria-label="التنقل الرئيسي">
           {navItems.map((item) => <Link key={item.href} href={item.href} className={location === item.href ? "site-nav__link site-nav__link--active" : "site-nav__link"}>{item.label}</Link>)}
@@ -28,7 +30,7 @@ export function SiteHeader() {
       </div>
       {open && <div className="mobile-menu" aria-label="روابط التنقل">
         {navItems.map((item) => <Link key={item.href} href={item.href} className="mobile-menu__link" onClick={() => setOpen(false)}>{item.label}</Link>)}
-        <Link href="/customize" className="mobile-menu__cta" onClick={() => setOpen(false)}>ابدئي طلبك</Link>
+        <a href={brand.whatsappUrl} target="_blank" rel="noreferrer" className="mobile-menu__cta" onClick={() => setOpen(false)}>احكِ لنا عن مناسبتك</a>
       </div>}
     </header>
   );
