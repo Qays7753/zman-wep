@@ -6,6 +6,7 @@ import { brand } from "@/data/siteContent";
 
 const navItems = [
   { href: "/", label: "الرئيسية" },
+  { href: "/brand", label: "ملف الهوية" },
   { href: "/how-to-order", label: "طريقة الطلب" },
   { href: "/care", label: "العناية" },
 ];

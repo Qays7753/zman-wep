@@ -1,6 +1,8 @@
 /** Herbarium Dispatch home: product-led editorial storytelling with replaceable reference media. */
 import { AssetStatus } from "@/components/AssetStatus";
+import { BrandCaseStudy } from "@/components/BrandCaseStudy";
 import { CandleReveal } from "@/components/CandleReveal";
+import { PlanterSequence } from "@/components/PlanterSequence";
 import { brand, giftFamilies, occasions, orderSteps, temporaryAssetNotice, visuals } from "@/data/siteContent";
 import { ArrowUpLeft, ChevronLeft, Leaf, MessageCircle, MoveLeft, Sparkles } from "lucide-react";
 import { Link } from "wouter";
@@ -20,7 +22,7 @@ export default function Home() {
       <div className="hero__scroll"><span>مرّري لاكتشاف التفاصيل</span><i /></div>
     </section>
 
-    <section className="statement section-shell"><div className="statement__mark">01</div><div><span className="section-kicker">فكرة زمن</span><h2>ليست مجرد توزيعة. إنها تفصيلة <em>تأخذ اسم مناسبتك.</em></h2></div><p>من التخرج إلى استقبال مولود أو لحظة خاصة، نرتّب التوزيعة حول ما تريدين أن يتذكره ضيوفك.</p></section>
+    <BrandCaseStudy />
 
     <section className="gift-families section-shell"><div className="section-topline"><div><span className="section-kicker">عالم الهدايا الطبيعية</span><h2>نباتات اليوم، وضوء دافئ قريبًا.</h2></div><span className="collection-index">02 / COLLECTION</span></div><div className="gift-families__grid">{giftFamilies.map((family) => <article key={family.id} className={`gift-family gift-family--${family.id}`}><div className="gift-family__image"><img src={family.image} alt={`صورة مرجعية مؤقتة لفئة ${family.title}`} /><AssetStatus status={family.status} /></div><div className="gift-family__copy"><span>{family.eyebrow}</span><h3>{family.title}</h3><p>{family.description}</p>{family.availability === "future" ? <b>قيد التحضير</b> : <Link href={`/customize?gift=${family.id}`} className="quiet-link">ابدئي الفكرة <MoveLeft size={16} /></Link>}</div></article>)}</div></section>
 
@@ -31,6 +33,7 @@ export default function Home() {
     </section>
 
     <section className="customization-band"><div className="customization-band__texture" style={{ backgroundImage: `url(${visuals.texture})` }} /><div className="section-shell customization-band__content"><div className="customization-band__image"><img src={visuals.customization} alt="تفصيل مرجعي مؤقت للتخصيص" /><AssetStatus status="temporary-reference" /></div><div className="customization-band__copy"><span className="section-kicker">التخصيص يبدأ منكم</span><h2>فكرتك أولًا.<br /><em>ثم التفاصيل.</em></h2><p>اكتبي المناسبة والكمية والاسم أو العبارة وأي ملاحظة تحبينها. سنجهّز رسالة مرتبة لتبدئي التنسيق عبر واتساب.</p><Link href="/customize" className="primary-link">خصّصي طلبك <MoveLeft size={18} /></Link></div></div></section>
+    <PlanterSequence />
     <CandleReveal />
 
     <section className="process section-shell"><div className="process__intro"><span className="section-kicker">بلا تعقيد</span><h2>ثلاث خطوات، ثم نتواصل معك.</h2></div><div className="process__steps">{orderSteps.map((step) => <article key={step.number}><span>{step.number}</span><h3>{step.title}</h3><p>{step.text}</p></article>)}</div></section>

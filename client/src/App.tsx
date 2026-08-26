@@ -10,6 +10,7 @@ import { Route, Switch } from "wouter";
 import { lazy, Suspense } from "react";
 
 const Home = lazy(() => import("./pages/Home"));
+const BrandStory = lazy(() => import("./pages/BrandStory"));
 const OccasionDetail = lazy(() => import("./pages/OccasionDetail"));
 const Customize = lazy(() => import("./pages/Customize"));
 const Care = lazy(() => import("./pages/Care"));
@@ -19,6 +20,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 function Router() {
   return <Switch>
     <Route path="/" component={Home} />
+    <Route path="/brand" component={BrandStory} />
     <Route path="/occasions/:id" component={OccasionDetail} />
     <Route path="/customize" component={Customize} />
     <Route path="/care" component={Care} />

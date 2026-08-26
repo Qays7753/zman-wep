@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle2, MessageCircle, MoveLeft } from "lucide-react"
 import { useMemo, useState } from "react";
 import { Link } from "wouter";
 
-type FormState = { giftFamily: "succulent" | "olive" | "candle"; occasion: string; quantity: string; personalization: string; note: string };
+type FormState = { giftFamily: "succulent" | "olive" | "planter" | "candle"; occasion: string; quantity: string; personalization: string; note: string };
 const initialForm: FormState = { giftFamily: "succulent", occasion: "graduation", quantity: "", personalization: "", note: "" };
 
 export default function Customize() {

@@ -35,10 +35,12 @@ export const visuals = {
   olive: "/manus-storage/zman-olive-favor-reference_7a24b568.jpg",
   candleCeramic: "/manus-storage/zman-candle-ceramic-reference_8f772014.jpg",
   candleConcrete: "/manus-storage/zman-candle-concrete-box-reference_d37ecb41.jpg",
+  plantedArrangement: "/manus-storage/zman-planted-arrangement-wooden-reference_e7ea8b1d.jpg",
+  plantedArrangementDetail: "/manus-storage/zman-planted-arrangement-detail-reference_0f4fcb06.jpg",
 };
 
 export type GiftFamily = {
-  id: "succulent" | "olive" | "candle";
+  id: "succulent" | "olive" | "planter" | "candle";
   title: string;
   eyebrow: string;
   description: string;
@@ -50,6 +52,7 @@ export type GiftFamily = {
 export const giftFamilies: GiftFamily[] = [
   { id: "succulent", title: "عصاريات صغيرة", eyebrow: "الفئة الأساسية", description: "توزيعات نباتية صغيرة تُنسّق حول المناسبة والتخصيص.", image: visuals.hero, status: "temporary-reference", availability: "current" },
   { id: "olive", title: "شتلات زيتون", eyebrow: "جذور وأصالة", description: "فئة نباتية ظاهرة في منشورات Zman، مناسبة للهدايا ذات المعنى المتجذّر.", image: visuals.olive, status: "temporary-reference", availability: "current" },
+  { id: "planter", title: "تنسيقات مزروعة", eyebrow: "قطعة واحدة فريدة", description: "تنسيق حي متعدد العناصر داخل حاوية مزروعة؛ تفاصيله وصورته النهائية تُراجعان معك.", image: visuals.plantedArrangementDetail, status: "temporary-reference", availability: "current" },
   { id: "candle", title: "شموع طبيعية", eyebrow: "قريبًا", description: "فئة مستقبلية قيد التحضير؛ لا تُعرض كمنتج متاح قبل اعتماد تفاصيلها الفعلية.", image: visuals.candleCeramic, status: "temporary-reference", availability: "future" },
 ];
 
